@@ -7,3 +7,13 @@ This jupyter notebook converts a series of individual mrc files, i.e. a tilt ser
 - python3
 - [mrcfile](https://anaconda.org/conda-forge/mrcfile)
 - numpy
+## Additional stuff
+### convert a series of tif stacks to mrc stacks (and transfer the tif pixel size to mrc pixel size)
+we use fishshell for that
+output mrc stacks will be saved in the current directory
+```
+for file in tif_stack_dir/*.tif
+    set outname (basename $file .tif).mrc
+    tif2mrc -P $file $outname
+end
+```
